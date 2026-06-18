@@ -11,8 +11,7 @@ venv/
 dist/
 build/
 
-# Data files (actividades)
-data/
+
 
 # OS
 .DS_Store
