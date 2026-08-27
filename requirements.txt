@@ -1,0 +1,8 @@
+tqdm
+pdfplumber
+python-pptx
+python-docx
+openpyxl
+pypdf
+pytesseract
+tabulate
