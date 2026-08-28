@@ -15,6 +15,28 @@ def crear_frontmatter(filename: str) -> str:
     )
 
 
+def crear_frontmatter_obsidian(filename: str, carpeta: str = "") -> str:
+    """Propiedades YAML validas para Obsidian. Sin H1: el nombre de la nota es el titulo."""
+    tipo = os.path.splitext(filename)[1][1:].lower()
+    lineas = [
+        "---",
+        f'archivo_original: "{filename}"',
+        f"tipo: {tipo}",
+    ]
+    if carpeta:
+        lineas.append(f'curso: "{carpeta}"')
+    lineas += [
+        f"fecha_conversion: {datetime.now().strftime('%Y-%m-%d')}",
+        "tags:",
+        "  - conversion",
+        f"  - {tipo}",
+        "---",
+        "",
+        "",
+    ]
+    return "\n".join(lineas)
+
+
 def tabla_a_markdown(filas: list) -> str:
     if not filas:
         return ""
